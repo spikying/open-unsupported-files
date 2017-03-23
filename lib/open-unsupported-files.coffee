@@ -3,10 +3,10 @@ module.exports =
     extensions:
       title: 'extensions'
       type: 'string'
-      default: 'doc,xls,ppt,docx,xlsx,pptx,pdf,rtf,zip,7z,rar,tar,gz,bz2,exe,bat'
+      default: 'doc,xls,ppt,docx,xlsx,pptx,pdf,rtf,zip,7z,rar,tar,gz,bz2,exe,bat,tps'
 
   activate: ->
-    @extensions = atom.config.get('open-unsupported-files.extensions')?.split(',')
+    @extensions = atom.config.get('open-unsupported-files.extensions')?.toLowerCase().split(',')
     {requirePackages} = require 'atom-utils'
     requirePackages('tree-view').then ([treeView]) =>
       if tv = treeView.treeView
